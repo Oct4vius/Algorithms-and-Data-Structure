@@ -1,6 +1,3 @@
-#Remove at index
-#Node at index
-
 class Node:
 
     """
