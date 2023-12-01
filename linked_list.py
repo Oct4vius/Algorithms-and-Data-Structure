@@ -11,7 +11,6 @@ class Node:
     def __init__(self, data):
         self.data = data
 
-
     def __repr__(self):
         return f'<Node data: {self.data}>'
     
@@ -123,6 +122,11 @@ class LinkedList:
     
     def delete(self, index):
 
+        """
+        Delete a Node by given index
+        Takes O(n) time
+        """
+
         if(index > self.size() - 1): 
             print('The size of the LinkedList is not that large')
             return 
@@ -146,6 +150,9 @@ class LinkedList:
         
 
     def read(self, index):
+        """
+        Print a Node data by a given index
+        """
 
         if(index > self.size() - 1): 
             print('The size of the LinkedList is not that large')
