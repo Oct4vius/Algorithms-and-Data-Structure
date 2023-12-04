@@ -120,7 +120,7 @@ class LinkedList:
                 current = current.next_node
         return current
     
-    def delete(self, index):
+    def remove_at_index(self, index):
 
         """
         Delete a Node by given index
@@ -166,7 +166,19 @@ class LinkedList:
             position -=1 
 
         print(current.data)
-        
+    
+    def node_at_index(self, index):
+        if index == 0:
+            return self.head
+        else:
+            current = self.head
+            position = 0
+
+            while position < index:
+                current = current.next_node
+                position += 1
+            
+            return current
     def __repr__(self):
         """
         Return a string representation of the list.
@@ -183,15 +195,3 @@ class LinkedList:
                 nodes.append("[%s]" % current.data)
             current = current.next_node
         return  '-> '.join(nodes)
-
-    
-class __main__:
-    l = LinkedList()
-    for i in range(0,10):
-        l.add(i + 1)
-
-    l.delete(9)
-
-    l.read(4)
-
-    print(l)
