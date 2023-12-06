@@ -1,13 +1,6 @@
 from linked_list import LinkedList
 import random
 
-l = LinkedList()
-
-for i in range(0,10):
-    l.add(random.randint(0,100))
-
-print(l)
-
 def merge_sort(linked_list):
     """
     Sorts a linked list in ascending order
@@ -15,6 +8,8 @@ def merge_sort(linked_list):
     - Repeatedly merge the sublists to produce sorted sublists until one remains
 
     Returns a sorted linked list
+
+    Runs in O(kn log n)
     """
 
     if linked_list.size() == 1:
@@ -33,6 +28,8 @@ def merge_sort(linked_list):
 def split(linked_list):
     """
     Divide the unsorted list at midpoint into sublists
+
+    Takes O(k log n)
     """
 
     if linked_list == None or linked_list.head == None:
@@ -59,6 +56,8 @@ def merge (left, right):
     """
     Merges two linked list, sorting by data in nodes
     Returns a new, merged list
+
+    Runs in O(n) time
     """
 
     #Creade a new linked list that contains node from
@@ -106,9 +105,23 @@ def merge (left, right):
             else:
                 current.next_node = right_head
                 right_head = right_head.next_node
+        #Move current to next node
         current = current.next_node
     #Discard fake head and set first merged node as head
     head = merged.head.next_node
     merged.head = head
 
     return merged
+
+#veryfu function
+
+l = LinkedList()
+
+for i in range(0,5):
+    l.add(random.randint(0,1000))
+
+print(l)
+
+sorted_linked_list = merge_sort(l)
+
+print(sorted_linked_list)
